@@ -1,0 +1,7 @@
+.DS_Store
+
+# ignore the site specific files
+style_guide/
+*.ai
+*.pdf
+*.mov

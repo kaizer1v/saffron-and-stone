@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saffron & Stone Design Studio | Transforming Spaces Into Stories</title>
+  <meta name="description" content="Premium interior design services crafting timeless, sophisticated spaces.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#F6EFE7',
+            saffron: '#873F2B',
+            taupe: '#C9B8A6',
+            bronze: '#C58A52',
+            olive: '#7A7F5D'
+          },
+          fontFamily: {
+            serif: ['Cormorant Garamond', 'serif'],
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root{
+      --color-cream: #F6EFE7; /* 60% - Base */
+      --color-saffron: #873F2B; /* 20% - Brand anchor */
+      --color-taupe: #C9B8A6; /* 10% - Soft neutral */
+      --color-bronze: #C58A52; /* 5% - Highlights */
+      --color-olive: #7A7F5D; /* 5% - Contrast */
+    }
+    .fade-in {
+      animation: fadeIn 0.8s ease-in forwards;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .slide-in {
+      animation: slideIn 0.6s ease-out forwards;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--color-bronze);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .service-card {
+      transition: all 0.4s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(135, 63, 43, 0.15);
+    }
+
+    .testimonial-card {
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+    }
+  </style>
+</head>
+
+<body class="bg-cream text-saffron font-sans antialiased">
+
+  <!-- Navigation -->
+  <nav class="fixed w-full top-0 z-50 bg-cream/95 backdrop-blur-sm border-b border-taupe/20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <a href="#" class="flex items-center gap-3">
+          <div class="w-10 h-10 bronze-shimmer rounded-full flex items-center justify-center">
+            <i data-lucide="gem" class="w-5 h-5 text-cream"></i>
+          </div>
+          <span class="font-serif text-2xl font-semibold tracking-wide">Saffron & Stone Design Studio</span>
+        </a>
+        <div class="hidden md:flex items-center gap-10">
+          <a href="#about"
+            class="nav-link text-sm font-medium tracking-wide hover:text-bronze transition-colors">About</a>
+          <a href="#services"
+            class="nav-link text-sm font-medium tracking-wide hover:text-bronze transition-colors">Services</a>
+          <a href="#portfolio"
+            class="nav-link text-sm font-medium tracking-wide hover:text-bronze transition-colors">Portfolio</a>
+          <a href="#ethos"
+            class="nav-link text-sm font-medium tracking-wide hover:text-bronze transition-colors">Ethos</a>
+          <a href="#contact"
+            class="px-6 py-2.5 bg-saffron text-cream text-sm font-medium tracking-wide hover:bg-saffron/90 transition-all rounded-sm">Contact
+            Us</a>
+        </div>
+        <button id="mobile-menu-btn" class="md:hidden p-2">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-cream border-t border-taupe/20">
+      <div class="px-6 py-4 space-y-4">
+        <a href="#about" class="block text-sm font-medium hover:text-bronze transition-colors">About</a>
+        <a href="#services" class="block text-sm font-medium hover:text-bronze transition-colors">Services</a>
+        <a href="#portfolio" class="block text-sm font-medium hover:text-bronze transition-colors">Portfolio</a>
+        <a href="#ethos" class="block text-sm font-medium hover:text-bronze transition-colors">Ethos</a>
+        <a href="#contact" class="block text-sm font-medium text-bronze">Contact Us</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center pt-20 overflow-hidden no-fade">
+    <div class="absolute inset-0 z-0">
+      <div class="absolute top-20 right-0 w-96 h-96 bg-taupe/30 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-20 left-0 w-72 h-72 bg-olive/20 rounded-full blur-3xl"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div>
+          <p class="text-bronze text-sm font-medium tracking-[0.2em] uppercase mb-6">Est. 2015</p>
+          <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.1] mb-8">
+            Elevate your space with <span class="italic text-bronze">Bespoke</span><br>
+            Interior Design
+          </h1>
+          <p class="text-saffron/80 text-lg leading-relaxed mb-10 max-w-lg">
+            Elevate your living space into a sanctuary of elegance and charm with our exquisite interior design solutions. Embrace a world of sophistication, where every detail is meticulously crafted to reflect your unique taste and the utmost in luxury.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#portfolio"
+              class="px-8 py-4 bg-saffron text-cream font-medium tracking-wide hover:bg-saffron/90 transition-all rounded-sm flex items-center gap-2">
+              View Our Work
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+            <a href="#contact"
+              class="px-8 py-4 border border-saffron text-saffron font-medium tracking-wide hover:bg-saffron hover:text-cream transition-all rounded-sm">
+              Book Consultation
+            </a>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="relative">
+            <img src="http://static.photos/interior/640x800/42" alt="Luxury Interior"
+              class="w-full h-[500px] lg:h-[600px] object-cover rounded-sm shadow-2xl image-hover">
+            <div class="absolute -bottom-6 -left-6 bg-cream p-6 shadow-xl rounded-sm">
+              <p class="font-serif text-3xl font-semibold text-saffron">500+</p>
+              <p class="text-sm text-saffron/70 tracking-wide">Projects Completed</p>
+            </div>
+          </div>
+          <div class="absolute -top-4 -right-4 w-24 h-24 border-2 border-bronze/30 rounded-sm"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-24 bg-cream">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="relative">
+          <img src="http://static.photos/workspace/640x480/88" alt="Design Studio"
+            class="w-full h-[400px] object-cover rounded-sm shadow-lg image-hover">
+          <div class="absolute -bottom-8 -right-8 w-64 h-48 bg-taupe/20 rounded-sm -z-10"></div>
+        </div>
+        <div>
+          <p class="text-bronze text-sm font-medium tracking-[0.2em] uppercase mb-4">Our Philosophy</p>
+          <h2 class="font-serif text-4xl md:text-5xl font-medium mb-8 leading-tight">
+            Design That <span class="italic text-bronze">Speaks</span> to You
+          </h2>
+          <p class="text-saffron/80 leading-relaxed mb-6">
+            At Saffron & Stone Design Studio, we believe that exceptional design transcends aesthetics. It's about creating
+            environments that nurture, inspire, and reflect the essence of those who inhabit them.
+          </p>
+          <p class="text-saffron/80 leading-relaxed mb-8">
+            Our approach combines timeless elegance with contemporary sensibility, using natural materials, thoughtful
+            craftsmanship, and a deep understanding of how spaces shape our daily lives.
+          </p>
+          <div class="grid grid-cols-3 gap-8 pt-8 border-t border-taupe/30">
+            <div>
+              <p class="font-serif text-3xl font-semibold text-saffron">9</p>
+              <p class="text-sm text-saffron/60 mt-1">Years Experience</p>
+            </div>
+            <div>
+              <p class="font-serif text-3xl font-semibold text-saffron">50+</p>
+              <p class="text-sm text-saffron/60 mt-1">Design Awards</p>
+            </div>
+            <div>
+              <p class="font-serif text-3xl font-semibold text-saffron">98%</p>
+              <p class="text-sm text-saffron/60 mt-1">Client Satisfaction</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-24 bg-saffron/5">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-bronze text-sm font-medium tracking-[0.2em] uppercase mb-4">What We Do</p>
+        <h2 class="font-serif text-4xl md:text-5xl font-medium">Our Services</h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="service-card bg-cream p-8 rounded-sm border border-taupe/20">
+          <div class="w-14 h-14 bg-bronze/10 rounded-full flex items-center justify-center mb-6">
+            <i data-lucide="home" class="w-6 h-6 text-bronze"></i>
+          </div>
+          <h3 class="font-serif text-xl font-semibold mb-4">Residential Design</h3>
+          <p class="text-saffron/70 text-sm leading-relaxed">
+            From cozy apartments to sprawling estates, we create homes that are beautiful, functional, and deeply
+            personal.
+          </p>
+        </div>
+        <div class="service-card bg-cream p-8 rounded-sm border border-taupe/20">
+          <div class="w-14 h-14 bg-bronze/10 rounded-full flex items-center justify-center mb-6">
+            <i data-lucide="building-2" class="w-6 h-6 text-bronze"></i>
+          </div>
+          <h3 class="font-serif text-xl font-semibold mb-4">Commercial Spaces</h3>
+          <p class="text-saffron/70 text-sm leading-relaxed">
+            Offices, hotels, and retail environments designed to elevate brand identity and enhance user experience.
+          </p>
+        </div>
+        <div class="service-card bg-cream p-8 rounded-sm border border-taupe/20">
+          <div class="w-14 h-14 bg-bronze/10 rounded-full flex items-center justify-center mb-6">
+            <i data-lucide="palette" class="w-6 h-6 text-bronze"></i>
+          </div>
+          <h3 class="font-serif text-xl font-semibold mb-4">Interior Styling</h3>
+          <p class="text-saffron/70 text-sm leading-relaxed">
+            Curated art, accessories, and finishing touches that bring your space to life with personality and charm.
+          </p>
+        </div>
+        <div class="service-card bg-cream p-8 rounded-sm border border-taupe/20">
+          <div class="w-14 h-14 bg-bronze/10 rounded-full flex items-center justify-center mb-6">
+            <i data-lucide="ruler" class="w-6 h-6 text-bronze"></i>
+          </div>
+          <h3 class="font-serif text-xl font-semibold mb-4">Space Planning</h3>
+          <p class="text-saffron/70 text-sm leading-relaxed">
+            Strategic layout optimization that maximizes flow, functionality, and the potential of every square foot.
+          </p>
+        </div>
+        <div class="service-card bg-cream p-8 rounded-sm border border-taupe/20">
+          <div class="w-14 h-14 bg-bronze/10 rounded-full flex items-center justify-center mb-6">
+            <i data-lucide="sofa" class="w-6 h-6 text-bronze"></i>
+          </div>
+          <h3 class="font-serif text-xl font-semibold mb-4">Furniture Curation</h3>
+          <p class="text-saffron/70 text-sm leading-relaxed">
+            Bespoke and designer furniture selections tailored to your aesthetic, comfort, and lifestyle needs.
+          </p>
+        </div>
+        <div class="service-card bg-cream p-8 rounded-sm border border-taupe/20">
+          <div class="w-14 h-14 bg-bronze/10 rounded-full flex items-center justify-center mb-6">
+            <i data-lucide="tree-pine" class="w-6 h-6 text-bronze"></i>
+          </div>
+          <h3 class="font-serif text-xl font-semibold mb-4">Sustainable Design</h3>
+          <p class="text-saffron/70 text-sm leading-relaxed">
+            Eco-conscious solutions using sustainable materials and practices for a healthier planet and home.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="py-24 bg-cream">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-16">
+        <div>
+          <p class="text-bronze text-sm font-medium tracking-[0.2em] uppercase mb-4">Selected Works</p>
+          <h2 class="font-serif text-4xl md:text-5xl font-medium">Our Portfolio</h2>
+        </div>
+        <a href="#"
+          class="mt-6 md:mt-0 text-bronze font-medium tracking-wide hover:text-saffron transition-colors flex items-center gap-2">
+          View All Projects
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="group cursor-pointer">
+          <div class="relative overflow-hidden rounded-sm">
+            <img src="http://static.photos/living/640x480/156" alt="Modern Living Room"
+              class="w-full h-80 object-cover image-hover">
+            <div
+              class="absolute inset-0 bg-saffron/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <span class="text-cream font-medium tracking-wide">View Project</span>
+            </div>
+          </div>
+          <div class="mt-4">
+            <h3 class="font-serif text-xl font-semibold">The Mercer Residence</h3>
+            <p class="text-saffron/60 text-sm mt-1">Residential • New York</p>
+          </div>
+        </div>
+        <div class="group cursor-pointer">
+          <div class="relative overflow-hidden rounded-sm">
+            <img src="http://static.photos/restaurant/640x480/203" alt="Restaurant Interior"
+              class="w-full h-80 object-cover image-hover">
+            <div
+              class="absolute inset-0 bg-saffron/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <span class="text-cream font-medium tracking-wide">View Project</span>
+            </div>
+          </div>
+          <div class="mt-4">
+            <h3 class="font-serif text-xl font-semibold">Saffron Bistro</h3>
+            <p class="text-saffron/60 text-sm mt-1">Commercial • San Francisco</p>
+          </div>
+        </div>
+        <div class="group cursor-pointer">
+          <div class="relative overflow-hidden rounded-sm">
+            <img src="http://static.photos/bedroom/640x480/77" alt="Bedroom Design"
+              class="w-full h-80 object-cover image-hover">
+            <div
+              class="absolute inset-0 bg-saffron/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <span class="text-cream font-medium tracking-wide">View Project</span>
+            </div>
+          </div>
+          <div class="mt-4">
+            <h3 class="font-serif text-xl font-semibold">Coastal Retreat</h3>
+            <p class="text-saffron/60 text-sm mt-1">Residential • Malibu</p>
+          </div>
+        </div>
+        <div class="group cursor-pointer">
+          <div class="relative overflow-hidden rounded-sm">
+            <img src="http://static.photos/office/640x480/112" alt="Office Space"
+              class="w-full h-80 object-cover image-hover">
+            <div
+              class="absolute inset-0 bg-saffron/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <span class="text-cream font-medium tracking-wide">View Project</span>
+            </div>
+          </div>
+          <div class="mt-4">
+            <h3 class="font-serif text-xl font-semibold">Terra Offices</h3>
+            <p class="text-saffron/60 text-sm mt-1">Commercial • Austin</p>
+          </div>
+        </div>
+        <div class="group cursor-pointer">
+          <div class="relative overflow-hidden rounded-sm">
+            <img src="http://static.photos/kitchen/640x480/289" alt="Kitchen Design"
+              class="w-full h-80 object-cover image-hover">
+            <div
+              class="absolute inset-0 bg-saffron/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <span class="text-cream font-medium tracking-wide">View Project</span>
+            </div>
+          </div>
+          <div class="mt-4">
+            <h3 class="font-serif text-xl font-semibold">The Oak Kitchen</h3>
+            <p class="text-saffron/60 text-sm mt-1">Residential • Chicago</p>
+          </div>
+        </div>
+        <div class="group cursor-pointer">
+          <div class="relative overflow-hidden rounded-sm">
+            <img src="http://static.photos/hotel/640x480/334" alt="Hotel Lobby"
+              class="w-full h-80 object-cover image-hover">
+            <div
+              class="absolute inset-0 bg-saffron/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <span class="text-cream font-medium tracking-wide">View Project</span>
+            </div>
+          </div>
+          <div class="mt-4">
+            <h3 class="font-serif text-xl font-semibold">The Elm Hotel</h3>
+            <p class="text-saffron/60 text-sm mt-1">Hospitality • Napa Valley</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ethos Section -->
+  <section id="ethos" class="py-24 bg-cream text-saffron">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-bronze text-sm font-medium tracking-[0.2em] uppercase mb-4">Our Values</p>
+        <h2 class="font-serif text-4xl md:text-5xl font-medium">Our Ethos</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-cream p-8 rounded-sm border border-taupe/20">
+          <div class="w-14 h-14 bg-bronze/10 rounded-full flex items-center justify-center mb-6">
+            <i data-lucide="award" class="w-6 h-6 text-bronze"></i>
+          </div>
+          <h3 class="font-serif text-xl font-semibold mb-4">Craftsmanship</h3>
+          <p class="text-saffron/70 text-sm leading-relaxed">We prioritize meticulous workmanship and enduring quality in every project, ensuring every detail is thoughtfully executed.</p>
+        </div>
+        <div class="bg-cream p-8 rounded-sm border border-taupe/20">
+          <div class="w-14 h-14 bg-bronze/10 rounded-full flex items-center justify-center mb-6">
+            <i data-lucide="layers" class="w-6 h-6 text-bronze"></i>
+          </div>
+          <h3 class="font-serif text-xl font-semibold mb-4">Timeless Design</h3>
+          <p class="text-saffron/70 text-sm leading-relaxed">We create spaces that age gracefully—balanced, curated, and rooted in lasting aesthetics rather than fleeting trends.</p>
+        </div>
+        <div class="bg-cream p-8 rounded-sm border border-taupe/20">
+          <div class="w-14 h-14 bg-bronze/10 rounded-full flex items-center justify-center mb-6">
+            <i data-lucide="leaf" class="w-6 h-6 text-bronze"></i>
+          </div>
+          <h3 class="font-serif text-xl font-semibold mb-4">Sustainable Practices</h3>
+          <p class="text-saffron/70 text-sm leading-relaxed">We use responsible sourcing and thoughtful material choices to minimize environmental impact while maximizing longevity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="py-24 bg-cream">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-bronze text-sm font-medium tracking-[0.2em] uppercase mb-4">How We Work</p>
+        <h2 class="font-serif text-4xl md:text-5xl font-medium">Our Process</h2>
+      </div>
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="w-20 h-20 mx-auto mb-6 rounded-full border-2 border-bronze flex items-center justify-center">
+            <span class="font-serif text-3xl font-semibold text-bronze">1</span>
+          </div>
+          <h3 class="font-serif text-xl font-semibold mb-3">Discovery</h3>
+          <p class="text-saffron/70 text-sm leading-relaxed">
+            We begin with understanding your vision, lifestyle, and aspirations through in-depth consultation.
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="w-20 h-20 mx-auto mb-6 rounded-full border-2 border-bronze flex items-center justify-center">
+            <span class="font-serif text-3xl font-semibold text-bronze">2</span>
+          </div>
+          <h3 class="font-serif text-xl font-semibold mb-3">Concept</h3>
+          <p class="text-saffron/70 text-sm leading-relaxed">
+            Mood boards, sketches, and 3D renderings bring your space to life before we begin.
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="w-20 h-20 mx-auto mb-6 rounded-full border-2 border-bronze flex items-center justify-center">
+            <span class="font-serif text-3xl font-semibold text-bronze">3</span>
+          </div>
+          <h3 class="font-serif text-xl font-semibold mb-3">Creation</h3>
+          <p class="text-saffron/70 text-sm leading-relaxed">
+            Our team executes with precision, managing every detail from procurement to installation.
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="w-20 h-20 mx-auto mb-6 rounded-full border-2 border-bronze flex items-center justify-center">
+            <span class="font-serif text-3xl font-semibold text-bronze">4</span>
+          </div>
+          <h3 class="font-serif text-xl font-semibold mb-3">Reveal</h3>
+          <p class="text-saffron/70 text-sm leading-relaxed">
+            The moment you've been waiting for—your transformed space, ready to be lived in and loved.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-24 bg-saffron/5">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16">
+        <div>
+          <p class="text-bronze text-sm font-medium tracking-[0.2em] uppercase mb-4">Get In Touch</p>
+          <h2 class="font-serif text-4xl md:text-5xl font-medium mb-8">Let's Create Something Beautiful</h2>
+          <p class="text-saffron/80 leading-relaxed mb-10">
+            Ready to transform your space? We'd love to hear about your project. Schedule a complimentary consultation
+            to discuss your vision.
+          </p>
+          <div class="space-y-6">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-bronze/10 rounded-full flex items-center justify-center">
+                <i data-lucide="map-pin" class="w-5 h-5 text-bronze"></i>
+              </div>
+              <div>
+                <p class="font-medium">Studio Location</p>
+                <p class="text-saffron/60 text-sm">245 Design District, New York, NY 10013</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-bronze/10 rounded-full flex items-center justify-center">
+                <i data-lucide="mail" class="w-5 h-5 text-bronze"></i>
+              </div>
+              <div>
+                <p class="font-medium">Email Us</p>
+                <p class="text-saffron/60 text-sm">hello@saffronandstonedesign.com</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-bronze/10 rounded-full flex items-center justify-center">
+                <i data-lucide="phone" class="w-5 h-5 text-bronze"></i>
+              </div>
+              <div>
+                <p class="font-medium">Call Us</p>
+                <p class="text-saffron/60 text-sm">+1 (212) 555-0147</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-cream p-8 md:p-10 rounded-sm shadow-lg border border-taupe/20">
+          <form id="contact-form" class="space-y-6">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-medium mb-2">First Name</label>
+                <input type="text" required
+                  class="w-full px-4 py-3 bg-cream border border-taupe/30 rounded-sm focus:border-bronze focus:outline-none transition-colors"
+                  placeholder="John">
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-2">Last Name</label>
+                <input type="text" required
+                  class="w-full px-4 py-3 bg-cream border border-taupe/30 rounded-sm focus:border-bronze focus:outline-none transition-colors"
+                  placeholder="Doe">
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-2">Email</label>
+              <input type="email" required
+                class="w-full px-4 py-3 bg-cream border border-taupe/30 rounded-sm focus:border-bronze focus:outline-none transition-colors"
+                placeholder="john@example.com">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-2">Project Type</label>
+              <select
+                class="w-full px-4 py-3 bg-cream border border-taupe/30 rounded-sm focus:border-bronze focus:outline-none transition-colors">
+                <option>Residential</option>
+                <option>Commercial</option>
+                <option>Hospitality</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-2">Message</label>
+              <textarea rows="4" required
+                class="w-full px-4 py-3 bg-cream border border-taupe/30 rounded-sm focus:border-bronze focus:outline-none transition-colors resize-none"
+                placeholder="Tell us about your project..."></textarea>
+            </div>
+            <button type="submit"
+              class="w-full py-4 bg-saffron text-cream font-medium tracking-wide hover:bg-saffron/90 transition-all rounded-sm flex items-center justify-center gap-2">
+              Send Message
+              <i data-lucide="send" class="w-4 h-4"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-saffron text-cream py-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-12 mb-12">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 bronze-shimmer rounded-full flex items-center justify-center">
+              <i data-lucide="gem" class="w-5 h-5 text-cream"></i>
+            </div>
+            <span class="font-serif text-2xl font-semibold tracking-wide">Saffron & Stone Design Studio</span>
+          </div>
+          <p class="text-cream/70 leading-relaxed max-w-md">
+            Crafting timeless spaces that inspire and endure. Where luxury meets livability, and every detail tells your
+            unique story.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-medium mb-6">Quick Links</h4>
+          <ul class="space-y-3 text-cream/70">
+            <li><a href="#about" class="hover:text-bronze transition-colors">About Us</a></li>
+            <li><a href="#services" class="hover:text-bronze transition-colors">Services</a></li>
+            <li><a href="#portfolio" class="hover:text-bronze transition-colors">Portfolio</a></li>
+            <li><a href="#contact" class="hover:text-bronze transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-medium mb-6">Follow Us</h4>
+          <div class="flex gap-4">
+            <a href="#"
+              class="w-10 h-10 bg-cream/10 rounded-full flex items-center justify-center hover:bg-bronze transition-colors">
+              <i data-lucide="instagram" class="w-5 h-5"></i>
+            </a>
+            <a href="#"
+              class="w-10 h-10 bg-cream/10 rounded-full flex items-center justify-center hover:bg-bronze transition-colors">
+              <i data-lucide="linkedin" class="w-5 h-5"></i>
+            </a>
+            <a href="#"
+              class="w-10 h-10 bg-cream/10 rounded-full flex items-center justify-center hover:bg-bronze transition-colors">
+              <i data-lucide="facebook" class="w-5 h-5"></i>
+            </a>
+            <a href="#"
+              class="w-10 h-10 bg-cream/10 rounded-full flex items-center justify-center hover:bg-bronze transition-colors">
+              <i data-lucide="twitter" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-cream/20 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-cream/60 text-sm">© 2026 Saffron & Stone Design Studio. All rights reserved.</p>
+        <div class="flex gap-6 text-cream/60 text-sm">
+          <a href="#" class="hover:text-bronze transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-bronze transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide icons
+    try { if (window.lucide && typeof lucide.createIcons === 'function') lucide.createIcons(); } catch (e) { /* ignore */ }
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => {
+        if (mobileMenu) mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Smooth scroll for anchor links (ignore bare "#" links)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (!href || href === '#') return; // skip empty or placeholder links
+        e.preventDefault();
+        let target = null;
+        try {
+          target = document.querySelector(href);
+        } catch (err) {
+          return; // invalid selector
+        }
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          if (mobileMenu) mobileMenu.classList.add('hidden');
+        }
+      });
+    });
+
+    // Form submission
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const btn = this.querySelector('button[type="submit"]');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<span>Message Sent!</span>';
+      btn.classList.add('bg-olive');
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.classList.remove('bg-olive');
+        this.reset();
+      }, 3000);
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('section > div').forEach(section => {
+      const parentSection = section.closest('section');
+      if (parentSection && parentSection.classList.contains('no-fade')) return;
+      section.classList.add('opacity-0');
+      observer.observe(section);
+    });
+  </script>
+</body>
+
+</html>
