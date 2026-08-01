@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coming Soon | Saffron & Stone Design Studio</title>
-  <meta name="description" content="Luxury residential interior design - Coming Soon">
+  <title>Saffron & Stone Design Studio | Luxury Residential Interior Design</title>
+  <meta name="description" content="Luxury residential interior design studio creating timeless, thoughtfully curated homes.">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -28,9 +28,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -41,148 +39,932 @@
       --color-olive: #7A7F5D;
     }
 
-    .fade-in {
-      animation: fadeIn 1.2s ease-in forwards;
+    html { scroll-behavior: smooth; }
+
+    .nav-link {
+      position: relative;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-saffron);
+      font-weight: 500;
     }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .decorative-line {
-      width: 80px;
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
       height: 1px;
       background: var(--color-bronze);
-      margin: 0 auto;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
+
+    .nav-link.active::after { width: 100%; }
+
+    .decorative-line {
+      width: 60px;
+      height: 1px;
+      background: var(--color-bronze);
     }
 
     .decorative-diamond {
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
       background: var(--color-bronze);
       transform: rotate(45deg);
-      margin: 0 auto;
+      flex-shrink: 0;
     }
+
+    /* Hero section with sticky nav */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    .project-card img {
+      transition: transform 0.5s ease;
+    }
+    .project-card:hover img {
+      transform: scale(1.04);
+    }
+    .project-card .overlay {
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .project-card:hover .overlay {
+      opacity: 1;
+    }
+
+    .process-step {
+      border-left: 1px solid var(--color-taupe);
+      padding-left: 1.5rem;
+    }
+
+    .service-col {
+      border-right: 1px solid var(--color-taupe);
+    }
+    .service-col:last-child { border-right: none; }
+
+    @media(max-width: 768px) {
+      .service-col { border-right: none; border-bottom: 1px solid var(--color-taupe); }
+      .service-col:last-child { border-bottom: none; }
+    }
+
+    select, input, textarea {
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Carousel modal ── */
+    #carousel-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0,0,0,0.88);
+      align-items: center;
+      justify-content: center;
+    }
+    #carousel-modal.open { display: flex; }
+
+    #carousel-modal .modal-inner {
+      position: relative;
+      width: 90vw;
+      max-width: 900px;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #carousel-modal img {
+      width: 100%;
+      max-height: 75vh;
+      object-fit: contain;
+      display: block;
+      user-select: none;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(246,239,231,0.12);
+      border: 1px solid rgba(246,239,231,0.25);
+      color: #F6EFE7;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s;
+      z-index: 10;
+      flex-shrink: 0;
+    }
+    .carousel-btn:hover { background: rgba(246,239,231,0.25); }
+    .carousel-btn.prev { left: -54px; }
+    .carousel-btn.next { right: -54px; }
+
+    @media(max-width: 768px) {
+      .carousel-btn.prev { left: 4px; }
+      .carousel-btn.next { right: 4px; }
+    }
+
+    .carousel-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      color: #F6EFE7;
+      opacity: 0.7;
+      cursor: pointer;
+      font-size: 1.5rem;
+      line-height: 1;
+      background: none;
+      border: none;
+      padding: 4px 8px;
+    }
+    .carousel-close:hover { opacity: 1; }
+
+    .carousel-counter {
+      margin-top: 14px;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(246,239,231,0.5);
+    }
+
+    .carousel-title {
+      margin-top: 6px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: rgba(246,239,231,0.85);
+    }
+
+    /* touch swipe visual hint */
+    #carousel-modal .modal-inner { touch-action: pan-y; }
   </style>
 </head>
 
 <body class="bg-cream text-saffron font-sans antialiased">
 
-  <div class="min-h-screen grid lg:grid-cols-2">
-    <!-- Left Content Section -->
-    <div class="flex flex-col justify-center items-center px-8 py-16 lg:px-16 fade-in">
-      <div class="max-w-lg w-full">
-        <!-- Logo -->
-        <div class="mb-12 text-center">
-          <img src="assets/logo/web/Saffron-Logo-Web-4C.png" alt="Saffron & Stone Design Studio"
-               class="h-16 w-auto object-contain mx-auto mb-8">
+  <!-- ── STICKY NAV ─────────────────────────────────────────────── -->
+  <header id="site-nav" class="sticky top-0 z-50 bg-cream border-b border-taupe/20 transition-shadow">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="#hero">
+        <img src="assets/logo/web/Icon/Saffron-Icon-Web-4C.png" alt="Saffron & Stone" class="h-12 w-auto">
+      </a>
+      <!-- Nav links -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#process" class="nav-link">Process</a>
+        <!-- <a href="#testimonials" class="nav-link">Testimonials</a> -->
+        <a href="#contact" class="ml-4 px-6 py-2.5 bg-saffron text-cream text-xs tracking-widest uppercase font-medium hover:bg-saffron/90 transition-colors">Contact</a>
+      </nav>
+      <!-- Mobile menu button -->
+      <button id="mobile-menu-btn" class="md:hidden p-2" aria-label="Menu">
+        <svg class="w-6 h-6 text-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <!-- Mobile nav -->
+    <div id="mobile-menu" class="hidden md:hidden bg-cream border-t border-taupe/20 px-6 py-4 flex flex-col gap-4">
+      <a href="#about" class="nav-link py-1">About</a>
+      <a href="#services" class="nav-link py-1">Services</a>
+      <a href="#projects" class="nav-link py-1">Projects</a>
+      <a href="#process" class="nav-link py-1">Process</a>
+      <a href="#testimonials" class="nav-link py-1">Testimonials</a>
+      <a href="#contact" class="nav-link py-1">Contact</a>
+    </div>
+  </header>
 
-          <h1 class="font-serif text-xl md:text-2xl font-medium tracking-wide text-saffron uppercase mb-2">
-            Saffron & Stone
-          </h1>
-          <p class="text-sm tracking-[0.3em] uppercase text-saffron/70">Design Studio</p>
-          <p class="text-xs tracking-widest uppercase text-bronze mt-2">Luxury Residential Interior Design</p>
-        </div>
-
-        <!-- Coming Soon -->
-        <div class="text-center mb-12">
-          <h2 class="font-serif text-4xl md:text-5xl font-medium text-saffron mb-6">
-            Coming Soon
-          </h2>
-          <div class="flex items-center justify-center gap-4 mb-6">
+  <!-- ── HERO ──────────────────────────────────────────────────── -->
+  <section id="hero" class="bg-cream">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-20 grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-5rem)]">
+      <!-- Left -->
+      <div class="flex flex-col gap-6">
+        <!-- Logo + wordmark -->
+        <div>
+          <img src="assets/logo/web/Saffron-Logo-Web-4C.png" alt="Saffron & Stone Design Studio" class="h-28 w-auto object-contain mb-4">
+          <p class="text-xs tracking-[0.25em] uppercase text-saffron/60 font-medium">Luxury Residential Interior Design</p>
+          <div class="flex items-center gap-3 mt-2">
             <div class="decorative-line"></div>
             <div class="decorative-diamond"></div>
             <div class="decorative-line"></div>
           </div>
-          <p class="text-base md:text-lg leading-relaxed text-saffron/80 mb-4">
-            Timeless design. Thoughtfully curated.
-          </p>
-          <p class="text-base md:text-lg leading-relaxed text-saffron/80">
-            Beautifully lived in.
-          </p>
         </div>
 
-        <!-- Description -->
-        <div class="text-center mb-12">
-          <p class="text-sm leading-relaxed text-saffron/70 mb-6">
-            We are crafting a new online experience that reflects our passion for creating warm, timeless, and meaningful spaces.
-          </p>
-        </div>
+        <!-- Headline -->
+        <h1 class="font-serif text-5xl lg:text-6xl font-medium italic leading-tight text-saffron mt-2">
+          Timeless Spaces.<br>Thoughtfully Designed.
+        </h1>
 
-        <!-- Email Signup -->
-        <div class="mb-12">
-          <p class="text-xs tracking-widest uppercase text-saffron/70 text-center mb-6">Stay Connected</p>
-          <form class="flex gap-2 mb-6">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              required
-              class="flex-1 px-4 py-3 bg-cream border border-taupe/40 rounded-sm focus:border-bronze focus:outline-none transition-colors text-sm"
-            >
-            <button
-              type="submit"
-              class="px-8 py-3 bg-saffron text-cream text-sm font-medium tracking-wide hover:bg-saffron/90 transition-all rounded-sm whitespace-nowrap"
-            >
-              Notify Me
-            </button>
-          </form>
-        </div>
+        <!-- Sub -->
+        <p class="text-base text-saffron/70 leading-relaxed max-w-sm">
+          We create warm, refined, and livable interiors that reflect your story and elevate how you live.
+        </p>
 
-        <!-- Social Media -->
-        <div class="text-center">
-          <a
-            href="https://instagram.com/saffronandstonedesign"
-            target="_blank"
-            class="inline-flex items-center gap-2 text-sm text-saffron/70 hover:text-bronze transition-colors"
-          >
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </svg>
-            @saffronandstonedesign
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row items-start gap-4 mt-2">
+          <a href="#projects" class="px-8 py-3.5 bg-saffron text-cream text-xs tracking-[0.2em] uppercase font-medium hover:bg-saffron/90 transition-colors">
+            Explore Our Work
+          </a>
+          <a href="#process" class="flex items-center gap-2 text-xs tracking-[0.18em] uppercase text-saffron font-medium border-b border-saffron/40 pb-0.5 hover:border-bronze hover:text-bronze transition-colors">
+            Our Design Process
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
         </div>
+      </div>
 
-        <!-- Footer Tagline -->
-        <div class="mt-16 text-center border-t border-taupe/30 pt-8">
-          <p class="text-xs tracking-[0.2em] uppercase text-saffron/60">
-            Inspired by heritage. Rooted in nature. Designed for you.
-          </p>
+      <!-- Right image -->
+      <div class="relative hidden lg:block">
+        <div class="overflow-hidden rounded-tl-[12rem] rounded-br-[2rem]">
+          <img src="assets/project_images/Project 1 - Sugar Lake Summer Home/Hendricks Ave NW_002 (1).jpg"
+               alt="Interior design preview"
+               class="w-full h-[600px] object-cover">
         </div>
       </div>
     </div>
 
-    <!-- Right Image Section -->
-    <div class="hidden lg:block relative overflow-hidden rounded-tl-[20rem]">
-      <img
-        src="assets/Screen Shot 2026-04-07 at 9.08.35 PM.png"
-        alt="Interior Design Preview"
-        class="w-full h-full object-cover"
-      >
-      <div class="absolute inset-0 bg-gradient-to-r from-cream/20 to-transparent"></div>
+    <!-- Philosophy strip -->
+    <div class="border-t border-taupe/30 bg-cream/80 py-10">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <p class="font-serif text-xl text-saffron font-medium italic leading-relaxed">
+          At Saffron &amp; Stone, we believe a home should feel as beautiful as it looks—layered, intentional, and deeply personal.
+        </p>
+        <p class="mt-4 text-sm text-saffron/70 leading-relaxed max-w-3xl mx-auto">
+          Rooted in a philosophy of quiet luxury, Saffron &amp; Stone blends natural textures, architectural depth, and curated restraint to create homes that feel elevated yet effortless. Our work is not about trends—it's about creating spaces that endure, evolve, and reflect the lives lived within them.
+        </p>
+      </div>
+    </div>
+
+    <!-- 4 pillars -->
+    <div class="border-t border-taupe/30">
+      <div class="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 divide-x divide-taupe/30">
+        <div class="flex items-start gap-4 px-8 py-8">
+          <img src="assets/icons/website.png" alt="" class="w-8 h-8 object-contain mt-0.5 opacity-70">
+          <div>
+            <p class="text-xs tracking-widest uppercase text-saffron font-semibold mb-1">Tailored Design</p>
+            <p class="text-xs text-saffron/60 leading-relaxed">Every detail is curated to reflect your unique style and needs.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 px-8 py-8">
+          <img src="assets/logo/web/Icon/Saffron-Icon-Web-4C.png" alt="" class="w-8 h-8 object-contain mt-0.5 opacity-50">
+          <div>
+            <p class="text-xs tracking-widest uppercase text-saffron font-semibold mb-1">Timeless Elegance</p>
+            <p class="text-xs text-saffron/60 leading-relaxed">We blend classic principles with modern living for enduring beauty.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 px-8 py-8">
+          <svg class="w-8 h-8 text-saffron/40 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          <div>
+            <p class="text-xs tracking-widest uppercase text-saffron font-semibold mb-1">Quality &amp; Craft</p>
+            <p class="text-xs text-saffron/60 leading-relaxed">From materials to execution, we believe in the finest standard.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 px-8 py-8">
+          <svg class="w-8 h-8 text-saffron/40 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          <div>
+            <p class="text-xs tracking-widest uppercase text-saffron font-semibold mb-1">Thoughtful Spaces</p>
+            <p class="text-xs text-saffron/60 leading-relaxed">Designed to feel as good as they look—warm, inviting, and livable.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ──────────────────────────────────────────────────── -->
+  <section id="about" class="py-24 bg-cream">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+      <!-- Section label -->
+      <div class="flex items-center gap-4 mb-6">
+        <div class="decorative-line"></div>
+        <p class="text-xs tracking-[0.25em] uppercase text-bronze font-medium">About</p>
+      </div>
+
+      <!-- Studio intro -->
+      <p class="font-serif text-xl lg:text-2xl text-saffron leading-relaxed max-w-4xl mb-16 fade-up">
+        Saffron &amp; Stone is a luxury residential interior design studio creating timeless, thoughtfully curated homes that feel both elevated and deeply personal. Rooted in a refined, earthy aesthetic, we blend natural materials, rich textures, and warm, nuanced palettes to craft spaces that are as functional as they are beautiful.
+      </p>
+
+      <!-- Founder block -->
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start fade-up">
+        <!-- Photo -->
+        <div class="relative">
+          <img src="assets/project_images/Project 3 - Interlachen Home/Use this image for about me page picture.jpg"
+               alt="Bhavana Bhimavarapu"
+               class="w-full max-w-md object-cover object-top" style="aspect-ratio:3/4;">
+        </div>
+        <!-- Bio -->
+        <div>
+          <h2 class="font-serif text-3xl lg:text-4xl italic font-medium text-saffron mb-1">Bhavana Bhimavarapu</h2>
+          <p class="font-serif text-lg italic text-saffron/60 mb-8">Founder / Design Principal</p>
+
+          <div class="space-y-5 text-sm text-saffron/75 leading-loose">
+            <p>
+              Creating a home is about so much more than selecting beautiful finishes or furnishings—it's about designing a space that reflects your story and supports the way you live. That belief has guided my career from the very beginning and ultimately inspired me to create Saffron &amp; Stone.
+            </p>
+            <p>
+              For more than a decade, I've had the privilege of working at one of the region's leading residential design firms. During those years, I had the privilege of working on custom new builds, large-scale renovations, and beautifully layered interiors alongside talented architects, builders, craftsmen, and industry professionals. Those experiences shaped not only my design perspective but also my belief that exceptional homes are created through collaboration, attention to detail, and a process that feels effortless for the client.
+            </p>
+            <p>
+              The name <strong class="text-saffron font-semibold">Saffron &amp; Stone</strong> is deeply personal to me. <strong class="text-saffron font-semibold">Saffron</strong> is a tribute to my Indian heritage, symbolizing warmth, richness, and tradition. <strong class="text-saffron font-semibold">Stone</strong> represents strength, timelessness, and enduring craftsmanship. Together, they embody the foundation of my work—creating homes that are refined yet approachable, elevated yet comfortable, and designed to stand the test of time.
+            </p>
+            <p>
+              When I'm not designing, you'll most likely find me exploring new destinations with my family, drawing inspiration from architecture, culture, and local craftsmanship around the world—or happily chasing after my three energetic kids, who remind me every day that the best homes are designed to be lived in, celebrated, and filled with memories.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ───────────────────────────────────────────────── -->
+  <section id="services" class="py-24 bg-saffron/5 border-t border-taupe/30">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+      <div class="flex items-center gap-4 mb-6">
+        <div class="decorative-line"></div>
+        <p class="text-xs tracking-[0.25em] uppercase text-bronze font-medium">Services</p>
+      </div>
+
+      <p class="font-serif text-xl lg:text-2xl text-saffron leading-relaxed max-w-4xl mb-16 fade-up text-center mx-auto">
+        Saffron &amp; Stone is a full-service interior design studio offering a comprehensive, detail-driven approach to creating refined and deeply personal homes. We work across new construction, large-scale renovations, and full-home furnishings—managing every phase from initial concept through final installation. Our process is designed to be seamless and highly tailored, allowing each project to unfold with clarity, intention, and ease.
+      </p>
+
+      <!-- 3 columns -->
+      <div class="grid md:grid-cols-3 divide-y md:divide-y-0 divide-taupe/40 border border-taupe/40 fade-up">
+        <!-- Col 1 -->
+        <div class="service-col px-8 py-10">
+          <h3 class="font-serif text-2xl italic font-medium text-saffron mb-4">Full-Service Interior Design</h3>
+          <p class="text-sm text-saffron/70 leading-relaxed mb-5">
+            Our full-service offering is designed for clients seeking a complete, start-to-finish experience. We oversee every detail of the design process, including:
+          </p>
+          <ul class="space-y-2 text-sm text-saffron/70">
+            <li class="flex items-start gap-2"><span class="text-bronze mt-0.5">•</span>Space planning and layout development</li>
+            <li class="flex items-start gap-2"><span class="text-bronze mt-0.5">•</span>Material and finish selections</li>
+            <li class="flex items-start gap-2"><span class="text-bronze mt-0.5">•</span>Custom furniture and millwork design</li>
+            <li class="flex items-start gap-2"><span class="text-bronze mt-0.5">•</span>Lighting design and specifications</li>
+            <li class="flex items-start gap-2"><span class="text-bronze mt-0.5">•</span>Procurement, order management, and vendor coordination</li>
+            <li class="flex items-start gap-2"><span class="text-bronze mt-0.5">•</span>Styling and final installation</li>
+          </ul>
+          <p class="text-xs text-saffron/50 leading-relaxed mt-5 italic">
+            This service ensures a cohesive, elevated result—where every element is thoughtfully considered and executed.
+          </p>
+        </div>
+
+        <!-- Col 2 -->
+        <div class="service-col px-8 py-10">
+          <h3 class="font-serif text-2xl italic font-medium text-saffron mb-4">New Construction &amp; Renovations</h3>
+          <p class="text-sm text-saffron/70 leading-relaxed mb-5">
+            We collaborate closely with architects, builders, and contractors to guide projects from the ground up or through transformative remodels. Our role includes:
+          </p>
+          <ul class="space-y-2 text-sm text-saffron/70">
+            <li class="flex items-start gap-2"><span class="text-bronze mt-0.5">•</span>Reviewing architectural plans and providing design direction</li>
+            <li class="flex items-start gap-2"><span class="text-bronze mt-0.5">•</span>Selecting interior architectural details and finishes</li>
+            <li class="flex items-start gap-2"><span class="text-bronze mt-0.5">•</span>Designing kitchens, bathrooms, and built-ins</li>
+            <li class="flex items-start gap-2"><span class="text-bronze mt-0.5">•</span>Ensuring continuity between structure and interior design</li>
+            <li class="flex items-start gap-2"><span class="text-bronze mt-0.5">•</span>Supporting on-site decisions throughout construction</li>
+          </ul>
+          <p class="text-xs text-saffron/50 leading-relaxed mt-5 italic">
+            Our goal is to bring both vision and precision—ensuring the finished home feels intentional, balanced, and timeless.
+          </p>
+        </div>
+
+        <!-- Col 3 -->
+        <div class="service-col px-8 py-10">
+          <h3 class="font-serif text-2xl italic font-medium text-saffron mb-4">Furnishings &amp; Styling</h3>
+          <p class="text-sm text-saffron/70 leading-relaxed mb-5">
+            For clients looking to elevate an existing space, we offer a full furnishings and styling service. This includes:
+          </p>
+          <ul class="space-y-2 text-sm text-saffron/70">
+            <li class="flex items-start gap-2"><span class="text-bronze mt-0.5">•</span>Furniture layouts and curated selections</li>
+            <li class="flex items-start gap-2"><span class="text-bronze mt-0.5">•</span>Custom upholstery and casegoods</li>
+            <li class="flex items-start gap-2"><span class="text-bronze mt-0.5">•</span>Rugs, lighting, and window treatments</li>
+            <li class="flex items-start gap-2"><span class="text-bronze mt-0.5">•</span>Art, accessories, and finishing details</li>
+            <li class="flex items-start gap-2"><span class="text-bronze mt-0.5">•</span>White-glove delivery and installation</li>
+          </ul>
+          <p class="text-xs text-saffron/50 leading-relaxed mt-5 italic">
+            We approach furnishings with the same level of care as full-scale projects—creating spaces that feel layered, complete, and effortlessly refined.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROJECTS ───────────────────────────────────────────────── -->
+  <section id="projects" class="py-24 bg-cream border-t border-taupe/30">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+      <div class="flex items-center gap-4 mb-6">
+        <div class="decorative-line"></div>
+        <p class="text-xs tracking-[0.25em] uppercase text-bronze font-medium">Projects</p>
+      </div>
+
+      <h2 class="font-serif text-4xl lg:text-5xl font-medium text-saffron mb-16 fade-up">Our Work</h2>
+
+      <div class="grid md:grid-cols-3 gap-6 fade-up">
+
+        <!-- Project 1 -->
+        <button type="button" class="project-card text-left block group relative overflow-hidden bg-taupe/10 cursor-pointer"
+          data-title="Sugar Lake Summer Home"
+          data-images='[
+            "assets/project_images/Project 1 - Sugar Lake Summer Home/Use this image for project thumbnail.jpg",
+            "assets/project_images/Project 1 - Sugar Lake Summer Home/Hendricks Ave NW_001 (1).jpg",
+            "assets/project_images/Project 1 - Sugar Lake Summer Home/Hendricks Ave NW_002 (1).jpg",
+            "assets/project_images/Project 1 - Sugar Lake Summer Home/Hendricks Ave NW_004.jpg",
+            "assets/project_images/Project 1 - Sugar Lake Summer Home/Hendricks Ave NW_018.jpg",
+            "assets/project_images/Project 1 - Sugar Lake Summer Home/Hendricks Ave NW_021.jpg",
+            "assets/project_images/Project 1 - Sugar Lake Summer Home/Hendricks Ave NW_028.jpg",
+            "assets/project_images/Project 1 - Sugar Lake Summer Home/Hendricks Ave NW_032.jpg",
+            "assets/project_images/Project 1 - Sugar Lake Summer Home/Hendricks Ave NW_038.jpg",
+            "assets/project_images/Project 1 - Sugar Lake Summer Home/Hendricks Ave NW_042.jpg"
+          ]'>
+          <div class="overflow-hidden aspect-[4/5]">
+            <img src="assets/project_images/Project 1 - Sugar Lake Summer Home/Use this image for project thumbnail.jpg"
+                 alt="Sugar Lake Summer Home"
+                 class="w-full h-full object-cover">
+          </div>
+          <div class="overlay absolute inset-0 bg-saffron/80 flex flex-col justify-end p-8">
+            <p class="text-xs tracking-widest uppercase text-cream/70 mb-1">Project 01</p>
+            <h3 class="font-serif text-2xl italic text-cream font-medium">Sugar Lake Summer Home</h3>
+            <p class="text-xs text-cream/70 mt-1 tracking-wide">New Build &nbsp;·&nbsp; JPC Custom Homes</p>
+            <span class="mt-4 text-xs tracking-widest uppercase text-bronze font-medium flex items-center gap-2">
+              View Gallery
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+          <div class="p-5 border-t border-taupe/30">
+            <p class="text-xs tracking-widest uppercase text-saffron/50 mb-1">Project 01</p>
+            <h3 class="font-serif text-xl font-medium text-saffron">Sugar Lake Summer Home</h3>
+            <p class="text-xs text-saffron/50 mt-1">New Build &nbsp;·&nbsp; JPC Custom Homes</p>
+          </div>
+        </button>
+
+        <!-- Project 2 -->
+        <button type="button" class="project-card text-left block group relative overflow-hidden bg-taupe/10 cursor-pointer"
+          data-title="St. Croix Valley Home"
+          data-images='[
+            "assets/project_images/Project 2 - St. Croix Valley home/Use this image for project thumbnail.jpg",
+            "assets/project_images/Project 2 - St. Croix Valley home/O_Hara Interiors_Kootenia Custom Homes_7375 Inwood Way N_003.jpg",
+            "assets/project_images/Project 2 - St. Croix Valley home/O_Hara Interiors_Kootenia Custom Homes_7375 Inwood Way N_009.jpg",
+            "assets/project_images/Project 2 - St. Croix Valley home/O_Hara Interiors_Kootenia Custom Homes_7375 Inwood Way N_018.jpg",
+            "assets/project_images/Project 2 - St. Croix Valley home/O_Hara Interiors_Kootenia Custom Homes_7375 Inwood Way N_019.jpg",
+            "assets/project_images/Project 2 - St. Croix Valley home/O_Hara Interiors_Kootenia Custom Homes_7375 Inwood Way N_021.jpg",
+            "assets/project_images/Project 2 - St. Croix Valley home/O_Hara Interiors_Kootenia Custom Homes_7375 Inwood Way N_022.jpg",
+            "assets/project_images/Project 2 - St. Croix Valley home/O_Hara Interiors_Kootenia Custom Homes_7375 Inwood Way N_023.jpg",
+            "assets/project_images/Project 2 - St. Croix Valley home/O_Hara Interiors_Kootenia Custom Homes_7375 Inwood Way N_030.jpg",
+            "assets/project_images/Project 2 - St. Croix Valley home/O_Hara Interiors_Kootenia Custom Homes_7375 Inwood Way N_036.jpg"
+          ]'>
+          <div class="overflow-hidden aspect-[4/5]">
+            <img src="assets/project_images/Project 2 - St. Croix Valley home/Use this image for project thumbnail.jpg"
+                 alt="St. Croix Valley Home"
+                 class="w-full h-full object-cover">
+          </div>
+          <div class="overlay absolute inset-0 bg-saffron/80 flex flex-col justify-end p-8">
+            <p class="text-xs tracking-widest uppercase text-cream/70 mb-1">Project 02</p>
+            <h3 class="font-serif text-2xl italic text-cream font-medium">St. Croix Valley Home</h3>
+            <p class="text-xs text-cream/70 mt-1 tracking-wide">New Build &nbsp;·&nbsp; Kootenia Homes</p>
+            <span class="mt-4 text-xs tracking-widest uppercase text-bronze font-medium flex items-center gap-2">
+              View Gallery
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+          <div class="p-5 border-t border-taupe/30">
+            <p class="text-xs tracking-widest uppercase text-saffron/50 mb-1">Project 02</p>
+            <h3 class="font-serif text-xl font-medium text-saffron">St. Croix Valley Home</h3>
+            <p class="text-xs text-saffron/50 mt-1">New Build &nbsp;·&nbsp; Kootenia Homes</p>
+          </div>
+        </button>
+
+        <!-- Project 3 -->
+        <button type="button" class="project-card text-left block group relative overflow-hidden bg-taupe/10 cursor-pointer"
+          data-title="Interlachen Home"
+          data-images='[
+            "assets/project_images/Project 3 - Interlachen Home/Use this image for project thumbnail.jpg",
+            "assets/project_images/Project 3 - Interlachen Home/6 Maple Hill Rd_006.jpg",
+            "assets/project_images/Project 3 - Interlachen Home/6 Maple Hill Rd_009.jpg",
+            "assets/project_images/Project 3 - Interlachen Home/6 Maple Hill Rd_016.jpg",
+            "assets/project_images/Project 3 - Interlachen Home/6 Maple Hill Rd_024.jpg",
+            "assets/project_images/Project 3 - Interlachen Home/6 Maple Hill Rd_028.jpg",
+            "assets/project_images/Project 3 - Interlachen Home/6 Maple Hill Rd_034.jpg",
+            "assets/project_images/Project 3 - Interlachen Home/6 Maple Hill Rd_046.jpg",
+            "assets/project_images/Project 3 - Interlachen Home/6 Maple Hill Rd_049.jpg",
+            "assets/project_images/Project 3 - Interlachen Home/6 Maple Hill Rd_055.jpg"
+          ]'>
+          <div class="overflow-hidden aspect-[4/5]">
+            <img src="assets/project_images/Project 3 - Interlachen Home/Use this image for project thumbnail.jpg"
+                 alt="Interlachen Home"
+                 class="w-full h-full object-cover">
+          </div>
+          <div class="overlay absolute inset-0 bg-saffron/80 flex flex-col justify-end p-8">
+            <p class="text-xs tracking-widest uppercase text-cream/70 mb-1">Project 03</p>
+            <h3 class="font-serif text-2xl italic text-cream font-medium">Interlachen Home</h3>
+            <p class="text-xs text-cream/70 mt-1 tracking-wide">Remodel &nbsp;·&nbsp; Knight Construction Design</p>
+            <span class="mt-4 text-xs tracking-widest uppercase text-bronze font-medium flex items-center gap-2">
+              View Gallery
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+          <div class="p-5 border-t border-taupe/30">
+            <p class="text-xs tracking-widest uppercase text-saffron/50 mb-1">Project 03</p>
+            <h3 class="font-serif text-xl font-medium text-saffron">Interlachen Home</h3>
+            <p class="text-xs text-saffron/50 mt-1">Remodel &nbsp;·&nbsp; Knight Construction Design</p>
+          </div>
+        </button>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CAROUSEL MODAL ─────────────────────────────────────────── -->
+  <div id="carousel-modal" role="dialog" aria-modal="true" aria-label="Project gallery">
+    <div class="modal-inner" id="carousel-inner">
+      <button class="carousel-close" id="carousel-close" aria-label="Close gallery">&times;</button>
+      <button class="carousel-btn prev" id="carousel-prev" aria-label="Previous image">
+        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7"/></svg>
+      </button>
+      <img id="carousel-img" src="" alt="">
+      <button class="carousel-btn next" id="carousel-next" aria-label="Next image">
+        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7"/></svg>
+      </button>
+      <p class="carousel-counter" id="carousel-counter"></p>
+      <p class="carousel-title" id="carousel-title"></p>
     </div>
   </div>
 
+  <!-- ── PROCESS ────────────────────────────────────────────────── -->
+  <section id="process" class="py-24 bg-saffron/5 border-t border-taupe/30">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+      <div class="flex items-center gap-4 mb-6">
+        <div class="decorative-line"></div>
+        <p class="text-xs tracking-[0.25em] uppercase text-bronze font-medium">Process</p>
+      </div>
+
+      <h2 class="font-serif text-4xl lg:text-5xl font-medium text-saffron mb-16 fade-up">How We Work</h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12 fade-up">
+
+        <div class="process-step">
+          <p class="text-xs tracking-[0.25em] uppercase text-bronze mb-3">01</p>
+          <h3 class="font-serif text-xl font-medium text-saffron mb-3">Initial Consultation</h3>
+          <p class="text-sm text-saffron/65 leading-relaxed">Every project begins with understanding your vision, lifestyle, and goals. We take the time to learn how you live so we can create a home that feels uniquely yours.</p>
+        </div>
+
+        <div class="process-step">
+          <p class="text-xs tracking-[0.25em] uppercase text-bronze mb-3">02</p>
+          <h3 class="font-serif text-xl font-medium text-saffron mb-3">Design Development</h3>
+          <p class="text-sm text-saffron/65 leading-relaxed">We transform ideas into a cohesive design through thoughtful planning, curated selections, and detailed presentations that bring your vision to life.</p>
+        </div>
+
+        <div class="process-step">
+          <p class="text-xs tracking-[0.25em] uppercase text-bronze mb-3">03</p>
+          <h3 class="font-serif text-xl font-medium text-saffron mb-3">Documentation &amp; Coordination</h3>
+          <p class="text-sm text-saffron/65 leading-relaxed">From design drawings to communication with architects, builders, and trades, we ensure every detail is carefully documented and seamlessly coordinated.</p>
+        </div>
+
+        <div class="process-step">
+          <p class="text-xs tracking-[0.25em] uppercase text-bronze mb-3">04</p>
+          <h3 class="font-serif text-xl font-medium text-saffron mb-3">Procurement</h3>
+          <p class="text-sm text-saffron/65 leading-relaxed">We manage every aspect of purchasing, order tracking, vendor communication, and logistics, providing a streamlined experience from selection to delivery.</p>
+        </div>
+
+        <div class="process-step">
+          <p class="text-xs tracking-[0.25em] uppercase text-bronze mb-3">05</p>
+          <h3 class="font-serif text-xl font-medium text-saffron mb-3">Installation &amp; Styling</h3>
+          <p class="text-sm text-saffron/65 leading-relaxed">As each piece comes together, we oversee installation and thoughtfully style every space to create a home that feels complete, layered, and effortlessly refined.</p>
+        </div>
+
+        <div class="process-step">
+          <p class="text-xs tracking-[0.25em] uppercase text-bronze mb-3">06</p>
+          <h3 class="font-serif text-xl font-medium text-saffron mb-3">Welcome Home</h3>
+          <p class="text-sm text-saffron/65 leading-relaxed">The final reveal is the culmination of a carefully guided process, resulting in a home that reflects your story and is designed to be enjoyed for years to come.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ───────────────────────────────────────────── -->
+  <!-- <section id="testimonials" class="py-24 bg-cream border-t border-taupe/30">
+    <div class="max-w-4xl mx-auto px-6 lg:px-12 text-center fade-up">
+
+      <div class="flex items-center justify-center gap-4 mb-6">
+        <div class="decorative-line"></div>
+        <p class="text-xs tracking-[0.25em] uppercase text-bronze font-medium">Testimonials</p>
+        <div class="decorative-line"></div>
+      </div>
+
+      <div class="relative py-8">
+        <p class="font-serif text-4xl text-saffron/20 leading-none mb-4 select-none">&ldquo;</p>
+        <blockquote class="font-serif text-xl lg:text-2xl italic text-saffron font-medium leading-relaxed mb-6">
+          Working with Saffron &amp; Stone was an absolute dream. Bhavana brought so much warmth, thoughtfulness, and vision to our home. Every detail felt intentional, and the result was more beautiful than we ever imagined.
+        </blockquote>
+        <p class="text-xs tracking-widest uppercase text-saffron/50 font-medium">— Happy Client, Sugar Lake</p>
+      </div>
+
+    </div>
+  </section> -->
+
+  <!-- ── CONTACT ────────────────────────────────────────────────── -->
+  <section id="contact" class="py-24 bg-saffron/5 border-t border-taupe/30">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16">
+
+      <!-- Left -->
+      <div class="fade-up">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="decorative-line"></div>
+          <p class="text-xs tracking-[0.25em] uppercase text-bronze font-medium">Contact</p>
+        </div>
+        <h2 class="font-serif text-4xl lg:text-5xl font-medium text-saffron mb-6">Start Your Project.</h2>
+        <p class="text-sm text-saffron/70 leading-relaxed mb-4">
+          Thank you for considering Saffron &amp; Stone. We would love to learn more about your project and how we can help bring your vision to life.
+        </p>
+        <p class="text-sm text-saffron/70 leading-relaxed mb-8">
+          Whether you're building a new home, planning a renovation, or furnishing your space, we're here to guide you through a thoughtful and personalized design experience.
+        </p>
+
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <img src="assets/icons/email.png" alt="" class="w-5 h-5 object-contain opacity-60">
+            <a href="mailto:hello@saffronandstonedesign.com" class="text-sm text-saffron/70 hover:text-bronze transition-colors">hello@saffronandstonedesign.com</a>
+          </div>
+          <div class="flex items-center gap-3">
+            <img src="assets/icons/phone-call.png" alt="" class="w-5 h-5 object-contain opacity-60">
+            <a href="tel:+13472182086" class="text-sm text-saffron/70 hover:text-bronze transition-colors">(347) 218-2086</a>
+          </div>
+          <div class="flex items-center gap-3">
+            <img src="assets/icons/instagram.png" alt="" class="w-5 h-5 object-contain opacity-60">
+            <a href="https://instagram.com/saffronandstonedesign" target="_blank" class="text-sm text-saffron/70 hover:text-bronze transition-colors">@saffronandstonedesign</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div class="fade-up">
+        <h3 class="font-serif text-2xl font-medium text-saffron mb-8 italic">Project Inquiry</h3>
+        <form id="contact-form" class="space-y-5">
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label class="text-xs tracking-widest uppercase text-saffron/60 block mb-2">Name</label>
+              <input type="text" required placeholder="Your name"
+                class="w-full px-4 py-3 bg-cream border border-taupe/40 text-sm text-saffron placeholder-saffron/30 focus:border-bronze focus:outline-none transition-colors">
+            </div>
+            <div>
+              <label class="text-xs tracking-widest uppercase text-saffron/60 block mb-2">Email Address</label>
+              <input type="email" required placeholder="your@email.com"
+                class="w-full px-4 py-3 bg-cream border border-taupe/40 text-sm text-saffron placeholder-saffron/30 focus:border-bronze focus:outline-none transition-colors">
+            </div>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label class="text-xs tracking-widest uppercase text-saffron/60 block mb-2">Phone Number</label>
+              <input type="tel" placeholder="(000) 000-0000"
+                class="w-full px-4 py-3 bg-cream border border-taupe/40 text-sm text-saffron placeholder-saffron/30 focus:border-bronze focus:outline-none transition-colors">
+            </div>
+            <div>
+              <label class="text-xs tracking-widest uppercase text-saffron/60 block mb-2">Project Location</label>
+              <input type="text" placeholder="City, State"
+                class="w-full px-4 py-3 bg-cream border border-taupe/40 text-sm text-saffron placeholder-saffron/30 focus:border-bronze focus:outline-none transition-colors">
+            </div>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label class="text-xs tracking-widest uppercase text-saffron/60 block mb-2">Service Needed</label>
+              <div class="relative">
+                <select class="w-full px-4 py-3 bg-cream border border-taupe/40 text-sm text-saffron focus:border-bronze focus:outline-none transition-colors cursor-pointer">
+                  <option value="">Select a service</option>
+                  <option>New Construction</option>
+                  <option>Renovation or Remodel</option>
+                  <option>Full-Service Interior Design</option>
+                  <option>Furnishings &amp; Styling</option>
+                  <option>Other</option>
+                </select>
+                <svg class="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-saffron/40 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg>
+              </div>
+            </div>
+            <div>
+              <label class="text-xs tracking-widest uppercase text-saffron/60 block mb-2">Estimated Investment</label>
+              <div class="relative">
+                <select class="w-full px-4 py-3 bg-cream border border-taupe/40 text-sm text-saffron focus:border-bronze focus:outline-none transition-colors cursor-pointer">
+                  <option value="">Select a range</option>
+                  <option>Under $50,000</option>
+                  <option>$50,000 – $100,000</option>
+                  <option>$100,000 – $250,000</option>
+                  <option>$250,000+</option>
+                </select>
+                <svg class="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-saffron/40 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg>
+              </div>
+            </div>
+          </div>
+          <div>
+            <label class="text-xs tracking-widest uppercase text-saffron/60 block mb-2">Desired Timeline</label>
+            <input type="text" placeholder="e.g. Spring 2026, flexible, ASAP"
+              class="w-full px-4 py-3 bg-cream border border-taupe/40 text-sm text-saffron placeholder-saffron/30 focus:border-bronze focus:outline-none transition-colors">
+          </div>
+          <div>
+            <label class="text-xs tracking-widest uppercase text-saffron/60 block mb-2">Tell Us About Your Project</label>
+            <textarea rows="4" placeholder="Share any details about your vision, space, or goals..."
+              class="w-full px-4 py-3 bg-cream border border-taupe/40 text-sm text-saffron placeholder-saffron/30 focus:border-bronze focus:outline-none transition-colors resize-none"></textarea>
+          </div>
+          <button type="submit"
+            class="w-full py-4 bg-saffron text-cream text-xs tracking-[0.2em] uppercase font-medium hover:bg-saffron/90 transition-colors">
+            Begin Your Project
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <footer class="bg-cream border-t border-taupe/40 py-12">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+      <!-- Top: logo + tagline + contact -->
+      <div class="flex flex-col items-center text-center border border-taupe/30 py-10 px-6 mb-8">
+        <img src="assets/logo/web/Saffron-Logo-Web-4C.png" alt="Saffron & Stone Design Studio" class="h-16 w-auto mb-4">
+        <p class="text-xs tracking-[0.3em] uppercase text-saffron/40 mb-8">Design Studio</p>
+
+        <div class="flex flex-col sm:flex-row items-center gap-0 sm:gap-0 divide-y sm:divide-y-0 sm:divide-x divide-taupe/40 w-full max-w-2xl">
+          <div class="flex items-center gap-3 px-6 py-3 justify-center flex-1">
+            <img src="assets/icons/email.png" alt="" class="w-5 h-5 object-contain opacity-50">
+            <a href="mailto:hello@saffronandstonedesign.com" class="text-sm text-saffron/70 hover:text-bronze transition-colors">hello@saffronandstonedesign.com</a>
+          </div>
+          <div class="flex items-center gap-3 px-6 py-3 justify-center flex-1">
+            <img src="assets/icons/phone-call.png" alt="" class="w-5 h-5 object-contain opacity-50">
+            <a href="tel:+13472182086" class="text-sm text-saffron/70 hover:text-bronze transition-colors">(347) 218-2086</a>
+          </div>
+          <div class="flex items-center gap-4 px-6 py-3 justify-center flex-1">
+            <a href="https://instagram.com/saffronandstonedesign" target="_blank" aria-label="Instagram">
+              <img src="assets/icons/instagram.png" alt="Instagram" class="w-5 h-5 object-contain opacity-50 hover:opacity-100 transition-opacity">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom -->
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p class="text-xs tracking-[0.15em] uppercase text-saffron/40">
+          &copy; 2025 Saffron &amp; Stone Design Studio. All rights reserved.
+        </p>
+        <p class="text-xs tracking-[0.15em] uppercase text-saffron/30 italic font-serif">
+          Inspired by heritage. Rooted in nature. Designed for you.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
   <script>
-    // Form submission
-    document.querySelector('form').addEventListener('submit', function(e) {
+    // mobile menu
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      document.getElementById('mobile-menu').classList.toggle('hidden')
+    })
+
+    // close mobile menu on link click
+    document.querySelectorAll('#mobile-menu a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.getElementById('mobile-menu').classList.add('hidden')
+      })
+    })
+
+    // active nav on scroll
+    const sections = document.querySelectorAll('section[id]')
+    const nav_links = document.querySelectorAll('header .nav-link')
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if(entry.isIntersecting) {
+          nav_links.forEach(function(l) { l.classList.remove('active') })
+          const active = document.querySelector('header a[href="#' + entry.target.id + '"]')
+          if(active) active.classList.add('active')
+        }
+      })
+    }, { threshold: 0.4 })
+    sections.forEach(function(s) { observer.observe(s) })
+
+    // fade-up on scroll
+    const fade_els = document.querySelectorAll('.fade-up')
+    const fade_observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('visible')
+          fade_observer.unobserve(entry.target)
+        }
+      })
+    }, { threshold: 0.1 })
+    fade_els.forEach(function(el) { fade_observer.observe(el) })
+
+    // ── Carousel ──────────────────────────────────────────────────
+    var modal = document.getElementById('carousel-modal')
+    var modal_img = document.getElementById('carousel-img')
+    var modal_counter = document.getElementById('carousel-counter')
+    var modal_title = document.getElementById('carousel-title')
+    var carousel_inner = document.getElementById('carousel-inner')
+
+    var current_images = []
+    var current_index = 0
+
+    function open_carousel(images, title, start_index) {
+      current_images = images
+      current_index = start_index || 0
+      modal_title.textContent = title
+      show_slide(current_index)
+      modal.classList.add('open')
+      document.body.style.overflow = 'hidden'
+    }
+
+    function close_carousel() {
+      modal.classList.remove('open')
+      document.body.style.overflow = ''
+    }
+
+    function show_slide(index) {
+      modal_img.src = current_images[index]
+      modal_img.alt = modal_title.textContent + ' — image ' + (index + 1)
+      modal_counter.textContent = (index + 1) + ' / ' + current_images.length
+    }
+
+    function go_prev() {
+      current_index = (current_index - 1 + current_images.length) % current_images.length
+      show_slide(current_index)
+    }
+
+    function go_next() {
+      current_index = (current_index + 1) % current_images.length
+      show_slide(current_index)
+    }
+
+    // open on project card click
+    document.querySelectorAll('.project-card').forEach(function(card) {
+      card.addEventListener('click', function() {
+        var images = JSON.parse(this.dataset.images)
+        var title = this.dataset.title
+        open_carousel(images, title, 0)
+      })
+    })
+
+    document.getElementById('carousel-close').addEventListener('click', close_carousel)
+    document.getElementById('carousel-prev').addEventListener('click', function(e) { e.stopPropagation(); go_prev() })
+    document.getElementById('carousel-next').addEventListener('click', function(e) { e.stopPropagation(); go_next() })
+
+    // close on backdrop click (outside modal-inner)
+    modal.addEventListener('click', function(e) {
+      if(!carousel_inner.contains(e.target)) close_carousel()
+    })
+
+    // keyboard navigation
+    document.addEventListener('keydown', function(e) {
+      if(!modal.classList.contains('open')) return
+      if(e.key === 'ArrowLeft') go_prev()
+      else if(e.key === 'ArrowRight') go_next()
+      else if(e.key === 'Escape') close_carousel()
+    })
+
+    // touch swipe support
+    var touch_start_x = null
+    carousel_inner.addEventListener('touchstart', function(e) {
+      touch_start_x = e.touches[0].clientX
+    }, { passive: true })
+    carousel_inner.addEventListener('touchend', function(e) {
+      if(touch_start_x === null) return
+      var dx = e.changedTouches[0].clientX - touch_start_x
+      if(Math.abs(dx) > 40) dx < 0 ? go_next() : go_prev()
+      touch_start_x = null
+    }, { passive: true })
+
+    // contact form
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
       e.preventDefault()
       const btn = this.querySelector('button[type="submit"]')
-      const originalText = btn.textContent
-      btn.textContent = 'Thank You!'
+      btn.textContent = 'Thank You — We\'ll Be in Touch!'
       btn.classList.add('bg-olive')
-      setTimeout(() => {
-        btn.textContent = originalText
+      btn.disabled = true
+      setTimeout(function() {
+        btn.textContent = 'Begin Your Project'
         btn.classList.remove('bg-olive')
-        this.reset()
-      }, 3000)
+        btn.disabled = false
+      }, 4000)
     })
   </script>
 </body>
