@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sugar Lake Summer Home | Saffron & Stone Design Studio</title>
+  <meta name="description" content="A new build summer home on Sugar Lake — designed by Saffron & Stone with JPC Custom Homes.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#F6EFE7',
+            saffron: '#873F2B',
+            taupe: '#C9B8A6',
+            bronze: '#C58A52',
+            olive: '#7A7F5D'
+          },
+          fontFamily: {
+            serif: ['Cormorant Garamond', 'serif'],
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-cream text-saffron font-sans antialiased">
+
+  <!-- ── STICKY NAV ─────────────────────────────────────────────── -->
+  <header id="site-nav" class="sticky top-0 z-50 bg-cream border-b border-taupe/20 transition-shadow">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-20">
+      <a href="index.html">
+        <img src="assets/logo/web/Icon/Saffron-Icon-Web-4C.png" alt="Saffron & Stone" class="h-12 w-auto">
+      </a>
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="projects.html" class="nav-link active">Projects</a>
+        <a href="process.html" class="nav-link">Process</a>
+        <a href="contact.html" class="ml-4 px-6 py-2.5 bg-saffron text-cream text-xs tracking-widest uppercase font-medium hover:bg-saffron/90 transition-colors">Contact</a>
+      </nav>
+      <button id="mobile-menu-btn" class="md:hidden p-2" aria-label="Menu">
+        <svg class="w-6 h-6 text-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-cream border-t border-taupe/20 px-6 py-4 flex flex-col gap-4">
+      <a href="index.html#about" class="nav-link py-1">About</a>
+      <a href="services.html" class="nav-link py-1">Services</a>
+      <a href="projects.html" class="nav-link py-1">Projects</a>
+      <a href="process.html" class="nav-link py-1">Process</a>
+      <a href="contact.html" class="nav-link py-1">Contact</a>
+    </div>
+  </header>
+
+  <!-- ── PROJECT HERO ───────────────────────────────────────────── -->
+  <section class="py-20 bg-cream border-b border-taupe/30">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <a href="projects.html" class="inline-flex items-center gap-2 text-xs tracking-widest uppercase text-saffron/50 hover:text-bronze transition-colors mb-8">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16l-4-4m0 0l4-4m-4 4h18"/></svg>
+        All Projects
+      </a>
+      <div class="flex items-center gap-4 mb-4">
+        <div class="decorative-line"></div>
+        <p class="text-xs tracking-[0.25em] uppercase text-bronze font-medium">Project 01</p>
+      </div>
+      <h1 class="font-serif text-5xl lg:text-6xl font-medium italic text-saffron mb-4">Sugar Lake Summer Home</h1>
+      <p class="text-sm text-saffron/50 tracking-wide">New Build &nbsp;·&nbsp; JPC Custom Homes</p>
+    </div>
+  </section>
+
+  <!-- ── HERO IMAGE ─────────────────────────────────────────────── -->
+  <div class="w-full fade-up">
+    <img src="assets/project_images/Project 1 - Sugar Lake Summer Home/Hendricks Ave NW_002 (1).jpg"
+         alt="Sugar Lake Summer Home hero"
+         class="w-full h-[60vh] object-cover cursor-pointer"
+         onclick="open_carousel(project_images, 1)">
+  </div>
+
+  <!-- ── GALLERY GRID ───────────────────────────────────────────── -->
+  <section class="py-16 bg-cream">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3 fade-up">
+        <div class="gallery-img aspect-[4/3]" onclick="open_carousel(project_images, 0)">
+          <img src="assets/project_images/Project 1 - Sugar Lake Summer Home/Use this image for project thumbnail.jpg" alt="Sugar Lake Summer Home">
+        </div>
+        <div class="gallery-img aspect-[4/3]" onclick="open_carousel(project_images, 2)">
+          <img src="assets/project_images/Project 1 - Sugar Lake Summer Home/Hendricks Ave NW_001 (1).jpg" alt="Sugar Lake Summer Home">
+        </div>
+        <div class="gallery-img aspect-[4/3]" onclick="open_carousel(project_images, 3)">
+          <img src="assets/project_images/Project 1 - Sugar Lake Summer Home/Hendricks Ave NW_004.jpg" alt="Sugar Lake Summer Home">
+        </div>
+        <div class="gallery-img aspect-[4/3]" onclick="open_carousel(project_images, 4)">
+          <img src="assets/project_images/Project 1 - Sugar Lake Summer Home/Hendricks Ave NW_018.jpg" alt="Sugar Lake Summer Home">
+        </div>
+        <div class="gallery-img aspect-[4/3]" onclick="open_carousel(project_images, 5)">
+          <img src="assets/project_images/Project 1 - Sugar Lake Summer Home/Hendricks Ave NW_021.jpg" alt="Sugar Lake Summer Home">
+        </div>
+        <div class="gallery-img aspect-[4/3]" onclick="open_carousel(project_images, 6)">
+          <img src="assets/project_images/Project 1 - Sugar Lake Summer Home/Hendricks Ave NW_028.jpg" alt="Sugar Lake Summer Home">
+        </div>
+        <div class="gallery-img aspect-[4/3]" onclick="open_carousel(project_images, 7)">
+          <img src="assets/project_images/Project 1 - Sugar Lake Summer Home/Hendricks Ave NW_032.jpg" alt="Sugar Lake Summer Home">
+        </div>
+        <div class="gallery-img aspect-[4/3]" onclick="open_carousel(project_images, 8)">
+          <img src="assets/project_images/Project 1 - Sugar Lake Summer Home/Hendricks Ave NW_038.jpg" alt="Sugar Lake Summer Home">
+        </div>
+        <div class="gallery-img aspect-[4/3]" onclick="open_carousel(project_images, 9)">
+          <img src="assets/project_images/Project 1 - Sugar Lake Summer Home/Hendricks Ave NW_042.jpg" alt="Sugar Lake Summer Home">
+        </div>
+      </div>
+
+      <!-- Prev / Next project nav -->
+      <div class="flex justify-between items-center mt-16 pt-8 border-t border-taupe/30">
+        <span class="text-xs tracking-widest uppercase text-saffron/30">First Project</span>
+        <a href="project_02.html" class="flex items-center gap-2 text-xs tracking-widest uppercase text-saffron font-medium hover:text-bronze transition-colors">
+          Next Project
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CAROUSEL MODAL ─────────────────────────────────────────── -->
+  <div id="carousel-modal" role="dialog" aria-modal="true" aria-label="Project gallery">
+    <div class="modal-inner" id="carousel-inner">
+      <button class="carousel-close" id="carousel-close" aria-label="Close gallery">&times;</button>
+      <button class="carousel-btn prev" id="carousel-prev" aria-label="Previous image">
+        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7"/></svg>
+      </button>
+      <img id="carousel-img" src="" alt="">
+      <button class="carousel-btn next" id="carousel-next" aria-label="Next image">
+        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7"/></svg>
+      </button>
+      <p class="carousel-counter" id="carousel-counter"></p>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <footer class="bg-cream border-t border-taupe/40 py-12">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+      <div class="flex flex-col items-center text-center py-10 px-6 mb-8">
+        <img src="assets/logo/web/Saffron-Logo-Web-4C.png" alt="Saffron &amp; Stone Design Studio" class="h-16 w-auto mb-4">
+        <div class="flex flex-col sm:flex-row items-center gap-0 sm:gap-0 divide-y sm:divide-y-0 sm:divide-x divide-taupe/40 w-full">
+          <div class="flex items-center gap-3 px-6 py-3 justify-center flex-1">
+            <img src="assets/icons/email.png" alt="" class="w-5 h-5 object-contain opacity-50">
+            <a href="mailto:hello@saffronandstonedesign.com" class="text-sm text-saffron/70 hover:text-bronze transition-colors">hello@saffronandstonedesign.com</a>
+          </div>
+          <div class="flex items-center gap-3 px-6 py-3 justify-center flex-1">
+            <img src="assets/icons/phone-call.png" alt="" class="w-5 h-5 object-contain opacity-50">
+            <a href="tel:+13472182086" class="text-sm text-saffron/70 hover:text-bronze transition-colors">(347) 218-2086</a>
+          </div>
+          <div class="flex items-center gap-3 px-6 py-3 justify-center flex-1">
+            <img src="assets/icons/instagram.png" alt="Instagram" class="w-5 h-5 object-contain opacity-50 hover:opacity-100 transition-opacity">
+            <a href="https://instagram.com/saffronandstonedesign" class="text-sm text-saffron/70 hover:text-bronze transition-colors" target="_blank" aria-label="Instagram">saffronandstonedesign</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p class="text-xs tracking-[0.15em] uppercase text-saffron/40">
+          &copy; 2025 Saffron &amp; Stone Design Studio. All rights reserved.
+        </p>
+        <p class="text-xs tracking-[0.15em] uppercase text-saffron/30 italic font-serif">
+          Inspired by heritage. Rooted in nature. Designed for you.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    var project_images = [
+      "assets/project_images/Project 1 - Sugar Lake Summer Home/Use this image for project thumbnail.jpg",
+      "assets/project_images/Project 1 - Sugar Lake Summer Home/Hendricks Ave NW_002 (1).jpg",
+      "assets/project_images/Project 1 - Sugar Lake Summer Home/Hendricks Ave NW_001 (1).jpg",
+      "assets/project_images/Project 1 - Sugar Lake Summer Home/Hendricks Ave NW_004.jpg",
+      "assets/project_images/Project 1 - Sugar Lake Summer Home/Hendricks Ave NW_018.jpg",
+      "assets/project_images/Project 1 - Sugar Lake Summer Home/Hendricks Ave NW_021.jpg",
+      "assets/project_images/Project 1 - Sugar Lake Summer Home/Hendricks Ave NW_028.jpg",
+      "assets/project_images/Project 1 - Sugar Lake Summer Home/Hendricks Ave NW_032.jpg",
+      "assets/project_images/Project 1 - Sugar Lake Summer Home/Hendricks Ave NW_038.jpg",
+      "assets/project_images/Project 1 - Sugar Lake Summer Home/Hendricks Ave NW_042.jpg"
+    ]
+
+    var modal = document.getElementById('carousel-modal')
+    var modal_img = document.getElementById('carousel-img')
+    var modal_counter = document.getElementById('carousel-counter')
+    var carousel_inner = document.getElementById('carousel-inner')
+    var current_images = []
+    var current_index = 0
+
+    function open_carousel(images, start_index) {
+      current_images = images
+      current_index = start_index || 0
+      show_slide(current_index)
+      modal.classList.add('open')
+      document.body.style.overflow = 'hidden'
+    }
+
+    function close_carousel() {
+      modal.classList.remove('open')
+      document.body.style.overflow = ''
+    }
+
+    function show_slide(index) {
+      modal_img.src = current_images[index]
+      modal_counter.textContent = (index + 1) + ' / ' + current_images.length
+    }
+
+    function go_prev() {
+      current_index = (current_index - 1 + current_images.length) % current_images.length
+      show_slide(current_index)
+    }
+
+    function go_next() {
+      current_index = (current_index + 1) % current_images.length
+      show_slide(current_index)
+    }
+
+    document.getElementById('carousel-close').addEventListener('click', close_carousel)
+    document.getElementById('carousel-prev').addEventListener('click', function(e) { e.stopPropagation(); go_prev() })
+    document.getElementById('carousel-next').addEventListener('click', function(e) { e.stopPropagation(); go_next() })
+
+    modal.addEventListener('click', function(e) {
+      if(!carousel_inner.contains(e.target)) close_carousel()
+    })
+
+    document.addEventListener('keydown', function(e) {
+      if(!modal.classList.contains('open')) return
+      if(e.key === 'ArrowLeft') go_prev()
+      else if(e.key === 'ArrowRight') go_next()
+      else if(e.key === 'Escape') close_carousel()
+    })
+
+    var touch_start_x = null
+    carousel_inner.addEventListener('touchstart', function(e) {
+      touch_start_x = e.touches[0].clientX
+    }, { passive: true })
+    carousel_inner.addEventListener('touchend', function(e) {
+      if(touch_start_x === null) return
+      var dx = e.changedTouches[0].clientX - touch_start_x
+      if(Math.abs(dx) > 40) dx < 0 ? go_next() : go_prev()
+      touch_start_x = null
+    }, { passive: true })
+
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      document.getElementById('mobile-menu').classList.toggle('hidden')
+    })
+
+    document.querySelectorAll('#mobile-menu a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.getElementById('mobile-menu').classList.add('hidden')
+      })
+    })
+
+    const fade_els = document.querySelectorAll('.fade-up')
+    const fade_observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('visible')
+          fade_observer.unobserve(entry.target)
+        }
+      })
+    }, { threshold: 0.1 })
+    fade_els.forEach(function(el) { fade_observer.observe(el) })
+  </script>
+</body>
+
+</html>

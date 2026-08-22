@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Saffron & Stone Design Studio</title>
+  <meta name="description" content="Browse curated residential interior design projects by Saffron & Stone.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#F6EFE7',
+            saffron: '#873F2B',
+            taupe: '#C9B8A6',
+            bronze: '#C58A52',
+            olive: '#7A7F5D'
+          },
+          fontFamily: {
+            serif: ['Cormorant Garamond', 'serif'],
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-cream text-saffron font-sans antialiased">
+
+  <!-- ── STICKY NAV ─────────────────────────────────────────────── -->
+  <header id="site-nav" class="sticky top-0 z-50 bg-cream border-b border-taupe/20 transition-shadow">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-20">
+      <a href="index.html">
+        <img src="assets/logo/web/Icon/Saffron-Icon-Web-4C.png" alt="Saffron & Stone" class="h-12 w-auto">
+      </a>
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="projects.html" class="nav-link active">Projects</a>
+        <a href="process.html" class="nav-link">Process</a>
+        <a href="contact.html" class="ml-4 px-6 py-2.5 bg-saffron text-cream text-xs tracking-widest uppercase font-medium hover:bg-saffron/90 transition-colors">Contact</a>
+      </nav>
+      <button id="mobile-menu-btn" class="md:hidden p-2" aria-label="Menu">
+        <svg class="w-6 h-6 text-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-cream border-t border-taupe/20 px-6 py-4 flex flex-col gap-4">
+      <a href="index.html#about" class="nav-link py-1">About</a>
+      <a href="services.html" class="nav-link py-1">Services</a>
+      <a href="projects.html" class="nav-link py-1">Projects</a>
+      <a href="process.html" class="nav-link py-1">Process</a>
+      <a href="contact.html" class="nav-link py-1">Contact</a>
+    </div>
+  </header>
+
+  <!-- ── PAGE HERO ──────────────────────────────────────────────── -->
+  <section class="py-20 bg-cream border-b border-taupe/30">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="decorative-line"></div>
+        <p class="text-xs tracking-[0.25em] uppercase text-bronze font-medium">Projects</p>
+      </div>
+      <h1 class="font-serif text-5xl lg:text-6xl font-medium italic text-saffron mb-6">Our Work</h1>
+      <p class="text-base text-saffron/70 leading-relaxed max-w-2xl">
+        A selection of residential projects reflecting our commitment to timeless design, refined materials, and spaces that feel both elevated and deeply personal.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── PROJECTS GRID ──────────────────────────────────────────── -->
+  <section class="py-24 bg-cream">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+      <div class="grid md:grid-cols-3 gap-6 fade-up">
+
+        <!-- Project 1 -->
+        <a href="project_01.html" class="project-card text-left block group relative overflow-hidden bg-taupe/10">
+          <div class="overflow-hidden aspect-[4/5]">
+            <img src="assets/project_images/Project 1 - Sugar Lake Summer Home/Use this image for project thumbnail.jpg"
+                 alt="Sugar Lake Summer Home"
+                 class="w-full h-full object-cover">
+          </div>
+          <div class="overlay absolute inset-0 bg-saffron/80 flex flex-col items-center justify-center p-8 text-center">
+            <h3 class="font-serif text-2xl italic text-cream font-medium mb-4">Sugar Lake Summer Home</h3>
+            <span class="text-xs tracking-widest uppercase text-bronze font-medium flex items-center gap-2">
+              View Project
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+          <div class="p-5 border-t border-taupe/30">
+            <!-- <p class="text-xs tracking-widest uppercase text-saffron/50 mb-1">Project 01</p> -->
+            <h3 class="font-serif text-xl font-medium text-saffron">Sugar Lake Summer Home</h3>
+            <p class="text-xs text-saffron/50 mt-1">New Build &nbsp;·&nbsp; JPC Custom Homes</p>
+          </div>
+        </a>
+
+        <!-- Project 2 -->
+        <a href="project_02.html" class="project-card text-left block group relative overflow-hidden bg-taupe/10">
+          <div class="overflow-hidden aspect-[4/5]">
+            <img src="assets/project_images/Project 2 - St. Croix Valley home/Use this image for project thumbnail.jpg"
+                 alt="St. Croix Valley Home"
+                 class="w-full h-full object-cover">
+          </div>
+          <div class="overlay absolute inset-0 bg-saffron/80 flex flex-col items-center justify-center p-8 text-center">
+            <h3 class="font-serif text-2xl italic text-cream font-medium mb-4">St. Croix Valley Home</h3>
+            <span class="text-xs tracking-widest uppercase text-bronze font-medium flex items-center gap-2">
+              View Project
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+          <div class="p-5 border-t border-taupe/30">
+            <!-- <p class="text-xs tracking-widest uppercase text-saffron/50 mb-1">Project 02</p> -->
+            <h3 class="font-serif text-xl font-medium text-saffron">St. Croix Valley Home</h3>
+            <p class="text-xs text-saffron/50 mt-1">New Build &nbsp;·&nbsp; Kootenia Homes</p>
+          </div>
+        </a>
+
+        <!-- Project 3 -->
+        <a href="project_03.html" class="project-card text-left block group relative overflow-hidden bg-taupe/10">
+          <div class="overflow-hidden aspect-[4/5]">
+            <img src="assets/project_images/Project 3 - Interlachen Home/Use this image for project thumbnail.jpg"
+                 alt="Interlachen Home"
+                 class="w-full h-full object-cover">
+          </div>
+          <div class="overlay absolute inset-0 bg-saffron/80 flex flex-col items-center justify-center p-8 text-center">
+            <h3 class="font-serif text-2xl italic text-cream font-medium mb-4">Interlachen Home</h3>
+            <span class="text-xs tracking-widest uppercase text-bronze font-medium flex items-center gap-2">
+              View Project
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+          <div class="p-5 border-t border-taupe/30">
+            <!-- <p class="text-xs tracking-widest uppercase text-saffron/50 mb-1">Project 03</p> -->
+            <h3 class="font-serif text-xl font-medium text-saffron">Interlachen Home</h3>
+            <p class="text-xs text-saffron/50 mt-1">Remodel &nbsp;·&nbsp; Knight Construction Design</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <footer class="bg-cream border-t border-taupe/40 py-12">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+      <div class="flex flex-col items-center text-center py-10 px-6 mb-8">
+        <img src="assets/logo/web/Saffron-Logo-Web-4C.png" alt="Saffron &amp; Stone Design Studio" class="h-16 w-auto mb-4">
+        <div class="flex flex-col sm:flex-row items-center gap-0 sm:gap-0 divide-y sm:divide-y-0 sm:divide-x divide-taupe/40 w-full">
+          <div class="flex items-center gap-3 px-6 py-3 justify-center flex-1">
+            <img src="assets/icons/email.png" alt="" class="w-5 h-5 object-contain opacity-50">
+            <a href="mailto:hello@saffronandstonedesign.com" class="text-sm text-saffron/70 hover:text-bronze transition-colors">hello@saffronandstonedesign.com</a>
+          </div>
+          <div class="flex items-center gap-3 px-6 py-3 justify-center flex-1">
+            <img src="assets/icons/phone-call.png" alt="" class="w-5 h-5 object-contain opacity-50">
+            <a href="tel:+13472182086" class="text-sm text-saffron/70 hover:text-bronze transition-colors">(347) 218-2086</a>
+          </div>
+          <div class="flex items-center gap-3 px-6 py-3 justify-center flex-1">
+            <img src="assets/icons/instagram.png" alt="Instagram" class="w-5 h-5 object-contain opacity-50 hover:opacity-100 transition-opacity">
+            <a href="https://instagram.com/saffronandstonedesign" class="text-sm text-saffron/70 hover:text-bronze transition-colors" target="_blank" aria-label="Instagram">saffronandstonedesign</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p class="text-xs tracking-[0.15em] uppercase text-saffron/40">
+          &copy; 2025 Saffron &amp; Stone Design Studio. All rights reserved.
+        </p>
+        <p class="text-xs tracking-[0.15em] uppercase text-saffron/30 italic font-serif">
+          Inspired by heritage. Rooted in nature. Designed for you.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      document.getElementById('mobile-menu').classList.toggle('hidden')
+    })
+
+    document.querySelectorAll('#mobile-menu a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.getElementById('mobile-menu').classList.add('hidden')
+      })
+    })
+
+    const fade_els = document.querySelectorAll('.fade-up')
+    const fade_observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('visible')
+          fade_observer.unobserve(entry.target)
+        }
+      })
+    }, { threshold: 0.1 })
+    fade_els.forEach(function(el) { fade_observer.observe(el) })
+  </script>
+</body>
+
+</html>
