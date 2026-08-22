@@ -18,7 +18,7 @@
 ## About
 - open a new page (refer to document she shared)
 
-#$ Services
+## Services
 - span the open text across the full width
 - 3 section titles to be bolder
 
