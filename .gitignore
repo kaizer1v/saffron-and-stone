@@ -1,5 +1,4 @@
 .DS_Store
-config.js
 
 # ignore the site specific files
 style_guide/
