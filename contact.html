@@ -210,17 +210,15 @@
 
   <!-- EmailJS SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <!-- Config injected by GitHub Actions (gitignored locally — see config.js) -->
+  <script src="config.js"></script>
   <script>
     // ── EmailJS config ────────────────────────────────────────────
     // Replace these three placeholders with your actual EmailJS values:
     //   PUBLIC_KEY   → Account > API Keys > Public Key
     //   SERVICE_ID   → Email Services > your service ID (e.g. "service_xxxxxxx")
     //   TEMPLATE_ID  → Email Templates > your template ID (e.g. "template_xxxxxxx")
-    const EMAILJS_PUBLIC_KEY  = 'c1rETmUziPFatDm3i'
-    const EMAILJS_SERVICE_ID  = 'Hello SSDS'
-    const EMAILJS_TEMPLATE_ID = 'website_form_receive'
-
-    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY })
+    emailjs.init({ publicKey: window.EMAILJS_PUBLIC_KEY })
 
     document.getElementById('mobile-menu-btn').addEventListener('click', function() {
       document.getElementById('mobile-menu').classList.toggle('hidden')
@@ -250,7 +248,7 @@
       btn.textContent = 'Sending…'
       btn.disabled = true
 
-      emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form)
+      emailjs.sendForm(window.EMAILJS_SERVICE_ID, window.EMAILJS_TEMPLATE_ID, form)
         .then(function() {
           btn.textContent = 'Thank You — We\'ll Be in Touch!'
           btn.classList.add('bg-olive')
